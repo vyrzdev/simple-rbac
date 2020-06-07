@@ -114,6 +114,7 @@ class Registry(object):
             # if access not yet allowed and all remaining roles could
             # only deny access, short-circuit and return False
             if not is_allowed and self._roles_are_deny_only(roles[i:]):
+                print("RBAC TRACE1")
                 return False
 
             check_allowed = not is_allowed
@@ -124,6 +125,7 @@ class Registry(object):
                                                  check_allowed=check_allowed,
                                                  **assertion_kwargs)
             if is_current_allowed is False:
+                print("RBAC TRACE2")
                 return False  # denied by rule
             elif is_current_allowed is True:
                 is_allowed = True
