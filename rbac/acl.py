@@ -125,8 +125,7 @@ class Registry(object):
                                                  check_allowed=check_allowed,
                                                  **assertion_kwargs)
             if is_current_allowed is False:
-                print("RBAC TRACE2")
-                return False  # denied by rule
+                is_allowed = False
             elif is_current_allowed is True:
                 is_allowed = True
         return is_allowed
